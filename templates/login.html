@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+<style>
+form {
+    border: 3px solid #f1f1f1;
+}
+.text{
+position:absolute;
+top:140px;
+
+}
+input[type=text], input[type=password] {
+    width: 10 	0%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.container {
+    padding: 16px;
+}
+#stopwords{
+position:absolute;
+    left: 508px;
+    top: 94px;
+}
+#tokenize{
+position:absolute;
+    left: 670px;
+    top: 94px;
+}
+
+#summarize{
+position:absolute;
+left: 832px;
+    top: 94px;
+}
+span.psw {
+    float: right;
+    padding-top: 0px;
+}
+.half{
+width:90%;
+position:absolute;
+left:5%;
+
+}
+
+</style>
+<body>
+
+
+<form action="/import" method="POST">
+<div class="half">
+<center><h2>Online News Summarizer </h2></center>
+
+
+
+  <div class="container">
+    <label><b>Enter Url</b></label> 
+    <input type="text" placeholder="Enter Url" name="url" for="url"/>
+
+       <button id="import" type="submit">IMPORT</button>
+    </div> 
+		</div>
+    </form>
+
+    <form action="/stopwords" method="GET">
+        <button id="stopwords"type="submit">STOPWORDS</button>
+    </form>   
+    <form class="tokenize" action="/tokenize">
+            <button id="tokenize" type="submit">TOKENIZE</button>
+
+    </form>    
+    <form class="summarize" action="/summarize">
+            <button id="summarize" type="submit">SUMMARIZE</button>
+
+    </form>
+
+
+
+</div>
+<div class="text">
+    {% if message %}
+        <p>{{message}}</p>
+    {% else %}
+        <p></p>
+    {% endif %}        
+</div>
+<div class="text">
+    {%if text %}
+        {% for m in text %}
+            <ul>{{m}}</ul>
+        {% endfor %}
+    {% endif %}        
+</div>
+
+
+</body>
+
+</html>
