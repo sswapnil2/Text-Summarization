@@ -1,0 +1,4 @@
+flask 
+nltk 
+bs4 
+lxml 
