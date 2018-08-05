@@ -13,121 +13,6 @@ from heapq import nlargest
 from string import punctuation
 
 
-# def rank(ranking, n):
-#     return nlargest(n, ranking, key=ranking.get)
-
-
-# url = "http://news.bbc.co.uk/2/hi/health/2284783.stm"
-# html = urllib.request.urlopen(url).read()
-# soup = BeautifulSoup(html,"lxml")
-
-# # kill all script and style elements
-# for script in soup(["script", "style"]):
-#     script.extract()    # rip it out
-
-# # get text
-# text = soup.get_text()
-
-# # break into lines and remove leading and trailing space on each
-# lines = (line.strip() for line in text.splitlines())
-# # break multi-headlines into a line each
-# chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
-# # drop blank lines
-# text = '\n'.join(chunk for chunk in chunks if chunk)
- 
-# stop_words = set(stopwords.words('english'))
-
-
-
-# # sent tokenizer
-# sents = sent_tokenize(text)
-# #print(sents)
-
-# word_sent = [word_tokenize(s.lower()) for s in sents]
-# #print(word_sent)
-
-
-# freq = defaultdict(int)
-# """for s in word_tokens:
-#     for word in s:
-#         if word not in self._stopwords:
-#           freq[word] += 1
-#     # frequencies normalization and fitering
-#     m = float(max(freq.values()))
-#     for w in freq.keys():
-#       freq[w] = freq[w]/m
-#       if freq[w] >= self._max_cut or freq[w] <= self._min_cut:
-#         del freq[w]
-#     return freq
-# """
-# word_tokens = word_tokenize(text)
-# filtered_sentence = [w for w in word_tokens if not w in stop_words]
-
-# for w in word_tokens:
-#     if w not in stop_words:
-#         filtered_sentence.append(w)
-        
-# for word in filtered_sentence:
-#     if freq[word] == 0:
-#         freq[word] = 1
-#     else:
-#         freq[word] += 1
-
-# ranking = defaultdict(int)        
-# for i,sent in enumerate(word_sent):
-#     for w in sent:
-#         if w in freq:
-#             ranking[i] += freq[w]
-#     sents_idx = rank(ranking, 5)    
-#     ar = [sents[j] for j in sents_idx]
-
-# print(ar)
-
-
- 
-
- 
-
- 
-
- 
-# #print(word_tokens)
-# #print(filtered_sentence)
-
-        
-
-# #print (freq) 
-
-
-
-
-
-# def  __init__(self, min_cut=0.1, max_cut=0.9):
-    
-    
-    # self._min_cut = min_cut
-    # self._max_cut = max_cut 
-    # self._stopwords = set(stopwords.words('english') + list(punctuation))
-
-   
-           
-    
-# """LANGUAGE='czech'
-# SENTENCES_COUNT= 5
-
-
-# parser = HtmlParser.from_url(url, Tokenizer(LANGUAGE))
-# stemmer = Stemmer(LANGUAGE)
-
-# summarizer = Summarizer(stemmer)
-# summarizer.stop_words = get_stop_words(LANGUAGE)
-
-# for sentence in summarizer(parser.document, SENTENCES_COUNT):
-#         print(sentence)"""
-
-
-
-
 class TextSummarzation(object):
 
     def __init__(self, min_cut=0.1, max_cut=0.9, text = None, sent_tokens = None, n = 2):
@@ -215,7 +100,7 @@ class TextSummarzation(object):
         return filtered_sentence
         
         
-    
+# for testing purpose
 
 if __name__=="__main__":
     ts = TextSummarzation()
